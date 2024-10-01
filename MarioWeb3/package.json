@@ -35,10 +35,14 @@
   },
   "devDependencies": {
     "husky": "~8.0.3",
-    "lint-staged": "~13.2.2"
+    "lint-staged": "~13.2.2",
+    "standard": "^17.1.2"
   },
   "packageManager": "yarn@3.2.3",
   "engines": {
     "node": ">=18.17.0"
+  },
+  "dependencies": {
+    "inherits": "^2.0.4"
   }
 }
