@@ -47,8 +47,11 @@ function preload() {
   this.load.image('smallTube', '/assets/scenery/vertical-small-tube.png');
   this.load.image('mediumTube', '/assets/scenery/vertical-medium-tube.png');
   this.load.image('largeTube', '/assets/scenery/vertical-large-tube.png');
+  this.load.image('block', '/assets/blocks/overworld/block.png');
+
   this.load.spritesheet('mario', '/assets/entities/mario.png', { frameWidth: 18, frameHeight: 16 });
   this.load.spritesheet('goomba', '/assets/entities/overworld/goomba.png', { frameWidth: 16, frameHeight: 16 });
+  this.load.spritesheet('misteryblock', '/assets/blocks/overworld/misteryblock.png', { frameWidth: 16, frameHeight: 16 });
 
   initAudio(this);
 }
@@ -91,13 +94,44 @@ function create() {
     .refreshBody();
 
   // Background
-  this.floor.create(384, this.sys.game.config.height - 16, 'smallTube')
-    .setOrigin(0, 1.5)
+  this.floor.create(384, this.sys.game.config.height - 48, 'smallTube')
+    .setOrigin(0, 0.5)
     .refreshBody();
   
-    this.floor.create(544, this.sys.game.config.height - 16, 'mediumTube')
-    .setOrigin(0, 1.3)
+    this.floor.create(544, this.sys.game.config.height - 56, 'mediumTube')
+    .setOrigin(0, 0.5)
     .refreshBody();
+
+  // Blocks
+  // first structure
+  this.floor.create(192, this.sys.game.config.height - 96, 'misteryblock')
+    .setOrigin(0, 0)
+    .refreshBody();
+
+  this.floor.create(256, this.sys.game.config.height - 96, 'block')
+    .setOrigin(0, 0)
+    .refreshBody();
+  
+  this.floor.create(272, this.sys.game.config.height - 96, 'misteryblock')
+    .setOrigin(0, 0)
+    .refreshBody();
+
+  this.floor.create(288, this.sys.game.config.height - 96, 'block')
+    .setOrigin(0, 0)
+    .refreshBody();
+  
+  this.floor.create(304, this.sys.game.config.height - 96, 'misteryblock')
+    .setOrigin(0, 0)
+    .refreshBody();
+  
+  this.floor.create(320, this.sys.game.config.height - 96, 'block')
+    .setOrigin(0, 0)
+    .refreshBody();
+
+  this.floor.create(288, this.sys.game.config.height - 152, 'misteryblock')
+    .setOrigin(0, 0)
+    .refreshBody();  
+
 
 // Characters
   this.mario = this.physics.add.sprite(50, 210, 'mario')
