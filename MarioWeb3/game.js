@@ -42,6 +42,11 @@ export const initializePhaserGame = () => {
 function preload() {
   this.load.image('cloud1', '/assets/scenery/overworld/cloud1.png');
   this.load.image('floorbricks', '/assets/scenery/overworld/floorbricks.png');
+  this.load.image('mountain1', '/assets/scenery/overworld/mountain1.png');
+  this.load.image('mountain2', '/assets/scenery/overworld/mountain2.png');
+  this.load.image('smallTube', '/assets/scenery/vertical-small-tube.png');
+  this.load.image('mediumTube', '/assets/scenery/vertical-medium-tube.png');
+  this.load.image('largeTube', '/assets/scenery/vertical-large-tube.png');
   this.load.spritesheet('mario', '/assets/entities/mario.png', { frameWidth: 18, frameHeight: 16 });
   this.load.spritesheet('goomba', '/assets/entities/overworld/goomba.png', { frameWidth: 16, frameHeight: 16 });
 
@@ -53,22 +58,54 @@ function create() {
     .setOrigin(0, 0)
     .setScale(0.15);
 
+  this.add.image(256, 30, 'cloud1')
+    .setOrigin(0, 0)
+    .setScale(0.15);
+
+  this.add.image(-16, 165, 'mountain2' )
+    .setOrigin(0, 0)
+    .setScale(0.625);
+
   this.floor = this.physics.add.staticGroup();
 
+// Scenario
+  // Ground 
   this.floor.create(0, this.sys.game.config.height - 16, 'floorbricks')
     .setOrigin(0, 0.5)
     .refreshBody();
 
-  this.floor.create(165, this.sys.game.config.height - 16, 'floorbricks')
+  this.floor.create(128, this.sys.game.config.height - 16, 'floorbricks')
     .setOrigin(0, 0.5)
     .refreshBody();
 
-  this.mario = this.physics.add.sprite(50, 100, 'mario')
+  this.floor.create(256, this.sys.game.config.height - 16, 'floorbricks')
+    .setOrigin(0, 0.5)
+    .refreshBody();
+
+  this.floor.create(384, this.sys.game.config.height - 16, 'floorbricks')
+    .setOrigin(0, 0.5)
+    .refreshBody();
+
+  this.floor.create(512, this.sys.game.config.height - 16, 'floorbricks')
+    .setOrigin(0, 0.5)
+    .refreshBody();
+
+  // Background
+  this.floor.create(384, this.sys.game.config.height - 16, 'smallTube')
+    .setOrigin(0, 1.5)
+    .refreshBody();
+  
+    this.floor.create(544, this.sys.game.config.height - 16, 'mediumTube')
+    .setOrigin(0, 1.3)
+    .refreshBody();
+
+// Characters
+  this.mario = this.physics.add.sprite(50, 210, 'mario')
     .setOrigin(0, 1)
     .setCollideWorldBounds(true)
     .setGravityY(500);
 
-  this.enemy = this.physics.add.sprite(120, this.sys.game.config.height - 30, 'goomba')
+  this.enemy = this.physics.add.sprite(368, this.sys.game.config.height - 30, 'goomba')
     .setOrigin(0, 1)
     .setCollideWorldBounds(false)
     .setGravityY(500)
@@ -113,26 +150,26 @@ function update() {
     killMario(this);
   }
 }
-  function killMario ( game ) { 
+function killMario ( game ) { 
 
-    const { mario, scene } = game;
+  const { mario, scene } = game;
 
-    if (mario.isDead) return;
+  if (mario.isDead) return;
 
-    mario.isDead = true;
-    mario.anims.play('mario-dead');
-    mario.setCollideWorldBounds(false);
-    playAudio('gameover', game);
+  mario.isDead = true;
+  mario.anims.play('mario-dead');
+  mario.setCollideWorldBounds(false);
+  playAudio('gameover', game);
 
-    mario.body.checkCollision.none = true;
-    mario.setVelocityX(0);
+  mario.body.checkCollision.none = true;
+  mario.setVelocityX(0);
 
-    setTimeout(() => {
-      mario.setVelocityY(-350);
-    }, 100);
+  setTimeout(() => {
+    mario.setVelocityY(-350);
+  }, 100);
 
-    setTimeout(() => {
-       scene.restart();
-       stopAudio('gameover', game);
-    }, 2000);
-  }
+  setTimeout(() => {
+    scene.restart();
+    // stopAudio('gameover', game);
+  }, 2000);
+}
