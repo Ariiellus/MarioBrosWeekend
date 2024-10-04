@@ -21,7 +21,7 @@ export function checkControls({ mario, keys }) {
   }
 
   if (upKey && marioFloor) {
-    mario.setVelocityY(-350);  
+    mario.setVelocityY(-375);  
     mario.anims.play('mario-jump', true);
   }
 }

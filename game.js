@@ -44,6 +44,8 @@ function preload() {
   this.load.image('floorbricks', '/assets/scenery/overworld/floorbricks.png');
   this.load.image('mountain1', '/assets/scenery/overworld/mountain1.png');
   this.load.image('mountain2', '/assets/scenery/overworld/mountain2.png');
+  this.load.image('bush1', '/assets/scenery/overworld/bush1.png');
+  this.load.image('bush2', '/assets/scenery/overworld/bush2.png');
   this.load.image('smallTube', '/assets/scenery/vertical-small-tube.png');
   this.load.image('mediumTube', '/assets/scenery/vertical-medium-tube.png');
   this.load.image('largeTube', '/assets/scenery/vertical-large-tube.png');
@@ -64,10 +66,44 @@ function create() {
   this.add.image(256, 30, 'cloud1')
     .setOrigin(0, 0)
     .setScale(0.15);
-
-  this.add.image(-16, 165, 'mountain2' )
+  
+  // Mountains
+  this.add.image(0, 176, 'mountain2' )
     .setOrigin(0, 0)
-    .setScale(0.625);
+    .setScale(0.5);
+  
+  this.add.image(256, 192, 'mountain1' )
+    .setOrigin(0, 0)
+    .setScale(0.5);
+
+  this.add.image(770, 176, 'mountain2' )
+    .setOrigin(0, 0)
+    .setScale(0.5);
+  
+  this.add.image(1024, 192, 'mountain1' )
+    .setOrigin(0, 0)
+    .setScale(0.5);
+
+  // Bushes
+  this.add.image(376, 196, 'bush2' )
+    .setOrigin(0, 0)
+    .setScale(0.5);
+
+  this.add.image(184, 196, 'bush1' )
+    .setOrigin(0, 0)
+    .setScale(0.5);
+
+  this.add.image(668, 196, 'bush2' )
+    .setOrigin(0, 0)
+    .setScale(0.5);
+  this.add.image(684, 196, 'bush2' )
+    .setOrigin(0, 0)
+    .setScale(0.5);
+
+  this.add.image(956, 196, 'bush1' )
+    .setOrigin(0, 0)
+    .setScale(0.5);
+
 
   this.floor = this.physics.add.staticGroup();
 
@@ -92,58 +128,161 @@ function create() {
   this.floor.create(512, this.sys.game.config.height - 16, 'floorbricks')
     .setOrigin(0, 0.5)
     .refreshBody();
+  
+  this.floor.create(640, this.sys.game.config.height - 16, 'floorbricks')
+    .setOrigin(0, 0.5)
+    .refreshBody();
 
-  // Background
-  this.floor.create(384, this.sys.game.config.height - 48, 'smallTube')
+  this.floor.create(768, this.sys.game.config.height - 16, 'floorbricks')
     .setOrigin(0, 0.5)
     .refreshBody();
   
-    this.floor.create(544, this.sys.game.config.height - 56, 'mediumTube')
+  this.floor.create(896, this.sys.game.config.height - 16, 'floorbricks')
     .setOrigin(0, 0.5)
     .refreshBody();
 
-  // Blocks
+  this.floor.create(976, this.sys.game.config.height - 16, 'floorbricks')
+    .setOrigin(0, 0.5)
+    .refreshBody();
+  
+  this.floor.create(1136, this.sys.game.config.height - 16, 'floorbricks')
+    .setOrigin(0, 0.5)
+    .refreshBody();
+
+  this.floor.create(1424, this.sys.game.config.height - 16, 'floorbricks')
+    .setOrigin(0, 0.5)
+    .refreshBody(); 
+  
+  this.floor.create(1248, this.sys.game.config.height - 16, 'floorbricks')
+    .setOrigin(0, 0.5)
+    .refreshBody(); 
+
+  // Tubes
+  this.floor.create(448, this.sys.game.config.height - 48, 'smallTube')
+    .setOrigin(0, 0.5)
+    .refreshBody();
+  
+  this.floor.create(608, this.sys.game.config.height - 56, 'mediumTube')
+    .setOrigin(0, 0.5)
+    .refreshBody();
+  
+  this.floor.create(736, this.sys.game.config.height - 64, 'largeTube')
+    .setOrigin(0, 0.5)
+    .refreshBody();
+  
+  this.floor.create(912, this.sys.game.config.height -64, 'largeTube')
+    .setOrigin(0, 0.5)
+    .refreshBody();
+
+// Blocks
   // first structure
-  this.floor.create(192, this.sys.game.config.height - 96, 'misteryblock')
+  this.floor.create(220, this.sys.game.config.height - 96, 'misteryblock')
     .setOrigin(0, 0)
     .refreshBody();
 
-  this.floor.create(256, this.sys.game.config.height - 96, 'block')
-    .setOrigin(0, 0)
-    .refreshBody();
-  
-  this.floor.create(272, this.sys.game.config.height - 96, 'misteryblock')
-    .setOrigin(0, 0)
-    .refreshBody();
-
-  this.floor.create(288, this.sys.game.config.height - 96, 'block')
-    .setOrigin(0, 0)
-    .refreshBody();
-  
-  this.floor.create(304, this.sys.game.config.height - 96, 'misteryblock')
-    .setOrigin(0, 0)
-    .refreshBody();
-  
   this.floor.create(320, this.sys.game.config.height - 96, 'block')
     .setOrigin(0, 0)
     .refreshBody();
+  
+  this.floor.create(336, this.sys.game.config.height - 96, 'misteryblock')
+    .setOrigin(0, 0)
+    .refreshBody();
 
-  this.floor.create(288, this.sys.game.config.height - 152, 'misteryblock')
+  this.floor.create(352, this.sys.game.config.height - 96, 'block')
+    .setOrigin(0, 0)
+    .refreshBody();
+  
+  this.floor.create(368, this.sys.game.config.height - 96, 'misteryblock')
+    .setOrigin(0, 0)
+    .refreshBody();
+  
+  this.floor.create(384, this.sys.game.config.height - 96, 'block')
+    .setOrigin(0, 0)
+    .refreshBody();
+
+  this.floor.create(352, this.sys.game.config.height - 152, 'misteryblock')
     .setOrigin(0, 0)
     .refreshBody();  
 
+  // Second structure
+  this.floor.create(1232, this.sys.game.config.height - 96, 'block')
+    .setOrigin(0, 0)
+    .refreshBody();
+  
+  this.floor.create(1248, this.sys.game.config.height - 96, 'misteryblock')
+    .setOrigin(0, 0)
+    .refreshBody();
+  
+  this.floor.create(1264, this.sys.game.config.height - 96, 'block')
+    .setOrigin(0, 0)
+    .refreshBody();
 
-// Characters
+  this.floor.create(1280, this.sys.game.config.height - 152, 'block')
+    .setOrigin(0, 0)
+    .refreshBody();
+
+  this.floor.create(1296, this.sys.game.config.height - 152, 'block')
+    .setOrigin(0, 0)
+    .refreshBody();
+  
+  this.floor.create(1312, this.sys.game.config.height - 152, 'block')
+    .setOrigin(0, 0)
+    .refreshBody();  
+  
+  this.floor.create(1328, this.sys.game.config.height - 152, 'block')
+    .setOrigin(0, 0)
+    .refreshBody();
+  
+  this.floor.create(1344, this.sys.game.config.height - 152, 'block')
+    .setOrigin(0, 0)     
+    .refreshBody();
+  
+  this.floor.create(1360, this.sys.game.config.height - 152, 'block')
+    .setOrigin(0, 0)
+    .refreshBody();
+  
+  this.floor.create(1376, this.sys.game.config.height - 152, 'block')
+    .setOrigin(0, 0)
+    .refreshBody();
+  
+  this.floor.create(1392, this.sys.game.config.height - 152, 'block')
+    .setOrigin(0, 0)
+    .refreshBody();
+  
+  
+
+
+  // Characters
   this.mario = this.physics.add.sprite(50, 210, 'mario')
     .setOrigin(0, 1)
     .setCollideWorldBounds(true)
     .setGravityY(500);
 
-  this.enemy = this.physics.add.sprite(368, this.sys.game.config.height - 30, 'goomba')
+  this.enemy = this.physics.add.sprite(352, this.sys.game.config.height - 30, 'goomba')
     .setOrigin(0, 1)
     .setCollideWorldBounds(false)
     .setGravityY(500)
     .setVelocityX(-50);
+
+// goombas need to be fixed
+
+/*   this.enemy = this.physics.add.sprite(640, this.sys.game.config.height - 30, 'goomba')
+    .setOrigin(0, 1)
+    .setCollideWorldBounds(false)
+    .setGravityY(500)
+    .setVelocityX(-50);
+  
+  this.enemy = this.physics.add.sprite(816, this.sys.game.config.height - 30, 'goomba')
+    .setOrigin(0, 1)
+    .setCollideWorldBounds(false)
+    .setGravityY(500)
+    .setVelocityX(-50);
+  
+  this.enemy = this.physics.add.sprite(840, this.sys.game.config.height - 30, 'goomba')
+    .setOrigin(0, 1)
+    .setCollideWorldBounds(false)
+    .setGravityY(500)
+    .setVelocityX(-50); */
 
   this.physics.world.setBounds(0, 0, 2000, this.sys.game.config.height);
   this.physics.add.collider(this.mario, this.floor);
