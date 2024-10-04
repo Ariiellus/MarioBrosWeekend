@@ -1,19 +1,51 @@
-### gm, stranger
-This is a project for NyF by FruteroClub
+# Super Mario Web3
 
-MarioNormal is the Web2 version of Super Mario Bros, just run it locally
+A Super Mario Bros level build with [OnchainKit](https://onchainkit.xyz), and ready to be deployed to Vercel.
 
-MarioWeb3 needs Next.js to play and then:
+Play with it live on https://onchain-app-template.vercel.app
 
-```git clone https://github.com/Ariiellus/MarioBrosWeekend.git
-cd MarioWeb3
-yarn chain
-yarn start
+Have fun! ⛵️
+
+<br />
+
+## Setup
+
+To ensure all components work seamlessly, set the following environment variables in your `.env` file using `.env.local.example` as a reference.
+
+You can find the API key on the [Coinbase Developer Portal's OnchainKit page](https://portal.cdp.coinbase.com/products/onchainkit). If you don't have an account, you will need to create one. 
+
+You can find your Wallet Connector project ID at [Wallet Connect](https://cloud.walletconnect.com).
+
+```sh
+# See https://portal.cdp.coinbase.com/products/onchainkit
+NEXT_PUBLIC_CDP_API_KEY="GET_FROM_COINBASE_DEVELOPER_PLATFORM"
+
+# See https://cloud.walletconnect.com
+NEXT_PUBLIC_WC_PROJECT_ID="GET_FROM_WALLET_CONNECT"
 ```
+<br />
 
-I'm using ScaffoldETH2 to ship the Web3 version
+## Locally run
 
-### Ideas
-- hETH to play a game
-- Prediction markets for the next players
-- Secret hETH multipliers (like secret lifes) accross the map 
+```sh
+# Install bun in case you don't have it
+curl -fsSL https://bun.sh/install | bash
+
+# Install packages
+bun i
+
+# Run Next app
+bun run dev
+```
+<br />
+
+## Resources
+
+- [OnchainKit documentation](https://onchainkit.xyz)
+- We use the [OnchainKit Early Adopter](https://github.com/neodaoist/onchainkit-early-adopter) contract written by neodaoist [[X]](https://x.com/neodaoist)
+
+<br />
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
