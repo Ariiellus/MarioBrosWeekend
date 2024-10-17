@@ -10,11 +10,11 @@ export function checkControls({ mario, keys }) {
 
   if (leftKey) {
     marioFloor && mario.anims.play('mario-walk', true);
-    mario.x -= 1;
+    mario.x -= 3;
     mario.flipX = true;
   } else if (rightKey) {
     marioFloor && mario.anims.play('mario-walk', true);
-    mario.x += 1;
+    mario.x += 3;
     mario.flipX = false;
   } else if (marioFloor) {
     mario.anims.play('mario-idle', true);
