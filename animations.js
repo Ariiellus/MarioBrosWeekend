@@ -40,12 +40,22 @@ export const createAnimations = (game) => {
   })
 
   game.anims.create({
-    key: 'misteryblock',
+    key: 'misteryBlock-idle',
     frames: game.anims.generateFrameNumbers(
       'misteryBlock',
       { start: 0, end: 2 }
     ),
-    frameRate: 1,
+    frameRate: 3,
+    repeat: -1
+  })
+
+  game.anims.create({
+    key: 'coin-idle',
+    frames: game.anims.generateFrameNumbers(
+      'coin',
+      { start: 0, end: 3 }
+    ),
+    frameRate: 6,
     repeat: -1
   })
 }
