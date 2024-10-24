@@ -9,7 +9,7 @@ import { initSpritesheet } from './spritesheet.js';
 let gameInstance = null; 
 
 export const initializePhaserGame = () => {
-  if (gameInstance) {
+  if (typeof window === 'undefined' || gameInstance) {
     return;
   }
 
@@ -39,6 +39,7 @@ export const initializePhaserGame = () => {
 
   gameInstance = new Phaser.Game(config);
 };
+
 
 function preload() {
   this.load.image('cloud1', '/assets/scenery/overworld/cloud1.png');

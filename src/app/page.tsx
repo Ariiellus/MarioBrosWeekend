@@ -13,11 +13,12 @@ import { initializePhaserGame } from "../../game.js";
 export default function Page() {
   const { address } = useAccount();
 
-    useEffect(() => {
-      if (typeof window !== "undefined") {
-        initializePhaserGame();
-      }
-    }, []);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      console.log(navigator.userAgent);  // Move navigator usage inside useEffect
+      initializePhaserGame();
+    }
+  }, []);
 
   return (
     <div className="flex h-full w-96 max-w-full flex-col px-1 md:w-[1008px]">
