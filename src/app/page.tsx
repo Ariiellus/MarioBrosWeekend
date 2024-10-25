@@ -15,7 +15,7 @@ const PageComponent = () => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      console.log(navigator.userAgent); 
+      console.log(navigator.userAgent);
       initializePhaserGame();
     }
   }, []);
@@ -48,7 +48,6 @@ const PageComponent = () => {
   );
 };
 
-// Disable SSR for this page
 const Page = dynamic(() => Promise.resolve(PageComponent), { ssr: false });
 
 export default Page;

@@ -18,28 +18,28 @@ export const initializePhaserGame = () => {
     width: 256,
     height: 244,
     backgroundColor: '#049cd8',
-    parent: 'game',  
+    parent: 'game',
     physics: {
       default: 'arcade',
       arcade: {
         gravity: { y: 500 },
-        debug: false
-      }
+        debug: false,
+      },
     },
     scale: {
-      mode: Phaser.Scale.FIT,  
-      autoCenter: Phaser.Scale.CENTER_BOTH  
+      mode: Phaser.Scale.FIT,
+      autoCenter: Phaser.Scale.CENTER_BOTH,
     },
     scene: {
       preload,
       create,
-      update
-    }
+      update,
+    },
   };
 
   gameInstance = new Phaser.Game(config);
 };
-
+ 
 function preload() {
   this.load.image('cloud1', '/assets/scenery/overworld/cloud1.png');
   this.load.image('floorbricks', '/assets/scenery/overworld/floorbricks.png');
