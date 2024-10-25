@@ -1,17 +1,19 @@
 /* global Phaser */
 
 import { createAnimations } from "./animations.js";
-import * as Phaser from 'phaser';
 import { checkControls } from "./controls.js";
 import { initAudio, playAudio } from "./audio.js";
 import { initSpritesheet } from './spritesheet.js';
 
-let gameInstance = null; 
+let gameInstance = null;
 
-export const initializePhaserGame = () => {
+export const initializePhaserGame = async () => {
   if (typeof window === 'undefined' || gameInstance) {
     return;
   }
+
+  // Dynamically import Phaser only in the browser
+  const Phaser = await import('phaser');
 
   const config = {
     type: Phaser.AUTO,
@@ -388,8 +390,7 @@ function killMario ( game ) {
   mario.isDead = true;
   mario.anims.play('mario-dead');
   mario.setCollideWorldBounds(false);
-  playAudio('gameover', game);
-
+  playAudio('gameover', game, { loop: false });
   mario.body.checkCollision.none = true;
   mario.setVelocityX(0);
 
