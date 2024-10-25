@@ -1,12 +1,12 @@
 /* global Phaser */
 
-import { createAnimations } from "./animations.js";
 import * as Phaser from "phaser";
+import { createAnimations } from "./animations.js";
 import { checkControls } from "./controls.js";
 import { initAudio, playAudio } from "./audio.js";
 import { initSpritesheet } from './spritesheet.js';
 
-let gameInstance = null; 
+let gameInstance = null;
 
 export const initializePhaserGame = () => {
   if (typeof window === 'undefined' || gameInstance) {
