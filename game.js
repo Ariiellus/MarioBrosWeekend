@@ -9,9 +9,9 @@ import { initSpritesheet } from './spritesheet.js';
 let gameInstance = null; 
 
 export const initializePhaserGame = () => {
-  if (gameInstance) {
+  if (typeof window === 'undefined' || gameInstance) {
     return;
- }
+  }
 
   const config = {
     type: Phaser.AUTO,
