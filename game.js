@@ -1,7 +1,7 @@
 /* global Phaser */
 
 import { createAnimations } from "./animations.js";
-import Phaser from "phaser";
+import * as Phaser from "phaser";
 import { checkControls } from "./controls.js";
 import { initAudio, playAudio } from "./audio.js";
 import { initSpritesheet } from './spritesheet.js';
