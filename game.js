@@ -40,7 +40,6 @@ export const initializePhaserGame = () => {
   gameInstance = new Phaser.Game(config);
 };
 
-
 function preload() {
   this.load.image('cloud1', '/assets/scenery/overworld/cloud1.png');
   this.load.image('floorbricks', '/assets/scenery/overworld/floorbricks.png');
