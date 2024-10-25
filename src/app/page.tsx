@@ -1,13 +1,14 @@
 'use client';
 import dynamic from 'next/dynamic';
 import Footer from 'src/components/Footer';
-import TransactionWrapper from 'src/components/TransactionWrapper';
-import WalletWrapper from 'src/components/WalletWrapper';
 import { useAccount } from 'wagmi';
 import LoginButton from '../components/LoginButton';
 import SignupButton from '../components/SignupButton';
 import { useEffect } from 'react';
 import { initializePhaserGame } from '../../game.js';
+
+const TransactionWrapper = dynamic(() => import('src/components/TransactionWrapper'), { ssr: false });
+const WalletWrapper = dynamic(() => import('src/components/WalletWrapper'), { ssr: false });
 
 const PageComponent = () => {
   const { address } = useAccount();
